@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Google Search</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f1f1f1;
+        }
+
+        form {
+            text-align: center;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            border-radius: 20px;
+            border: 1px solid #ccc;
+            width: 300px;
+            max-width: 80%;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"], input[type="button"] {
+            padding: 10px 20px;
+            border-radius: 20px;
+            border: none;
+            background-color: #4285f4;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-left: 10px; /* Added margin for spacing between buttons */
+        }
+
+        input[type="submit"]:hover, input[type="button"]:hover {
+            background-color: #357ae8;
+        }
+    </style>
+</head>
+<body>
+    <form action="https://google.com/search">
+        <input name="q" type="text" placeholder="Search..." />
+        <br><br>
+        <input type="submit" value="Google Search" />
+        <input type="button" value="I'm Feeling Lucky" onclick="feelingLucky()" />
+    </form>
+
+    <script>
+        function feelingLucky() {
+            var query = document.querySelector('input[name="q"]').value;
+            if (query.trim() !== '') {
+                window.location.href = "https://www.google.com/search?q=" + encodeURIComponent(query) + "&btnI";
+            }
+        }
+    </script>
+</body>
+</html>
